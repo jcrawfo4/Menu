@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "inquirer": "^9.2.23",
+    "prompt-sync": "^4.2.0"
+  },
+  "scripts": {
+    "start": "node orderApp.js"
+  }
+}
