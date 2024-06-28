@@ -1,10 +1,10 @@
-const prompt = require("prompt-sync")({ sigint: true });
+// const prompt = require("prompt-sync")({ sigint: true });
 const Order = require("./order");
 
-const readline = require("readline").createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const readline = require("readline").createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
 class orderApp {
   constructor() {
@@ -19,8 +19,8 @@ class orderApp {
   }
 
   getUserSelection() {
-    readline.question(
-      "what would you like to do?\n1 1. Add item to order\n 2. Remove item from order\n 3. Place order\n 4. Exit\n",
+    prompt(
+      "what would you like to do?\n 1. Add item to order\n 2. Remove item from order\n 3. Place order\n 4. Exit\n",
       (answer) => {
         this.processUserSelection(answer);
       }
@@ -29,7 +29,7 @@ class orderApp {
 
   exit() {
     console.log("Goodbye!");
-    readline.close();
+    //readline.close();
     process.exit(0);
     //return (this.running = false);
   }
@@ -65,4 +65,5 @@ class orderApp {
     this.total = 0;
   }
 }
-new orderApp().start();
+let orderApp = new orderApp();
+orderApp.start();
