@@ -22,9 +22,9 @@ class Menu{
     let selection = this.getUserSelection();
 
     while(selection !== "4"){
-      if(selection === "1"){
+      if(selection == "1"){
         this.addItem();
-      }else if(selection === "2"){
+      }else if(selection == "2"){
         this.removeItem();
       }else if(selection === "3"){
         this.placeOrder();
@@ -41,7 +41,6 @@ class Menu{
     let selection = prompt(`${question}
 Enter the number of the action you would like to take: `);
     return selection;
-
   }
 
   addItem(){
