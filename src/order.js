@@ -1,27 +1,39 @@
-
+const Menu = require("./menu.js");
 
 class Order {
   constructor() {
     this.items = [];
+    this.menu = new Menu();
   }
 
-  addItem(item) {
+  addItem(item_id) {
+    const item = this.findItem(item_id);
     this.items.push(item);
-    console.log(`Added ${item.name} to order.`);
+  }
+
+  findItem(item_id) {
+    for (let i = 0; i < this.menu.menu.length; i++) {
+      if (this.menu.menu[i].id === parseInt(item_id)) {
+        return this.menu.menu[i];
+      }
+    }
   }
 
   removeItem(item) {
-    this.items = this.items.filter((i) => i !== item);
+    for(let i = 0; i < this.items.length; i++){
+      if(this.items[i].id === parseInt(item)){
+        this.items.splice(i, 1);
+      }
+    }
   }
 
   listItems() {
     if (this.items.length > 0) {
-      console.log("Your order items:");
-      this.items.forEach((item, index) => {
-        console.log(`${index + 1}. ${item}`);
+      console.log("your order so far: ");
+      this.items.forEach((item) => {
+        console.log(`${item.id}. ${item.name} - $${item.price}`);
       });
-    } else {
-      console.log("Your order is currently empty.");
+      console.log("Total: $" + this.getTotal());
     }
   }
 

@@ -1,10 +1,6 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
 
-// const readline = require("readline").createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
 class Menu{
   constructor(){
     this.menu=[
